@@ -1,58 +1,84 @@
 # PROJECT#1 Python Banking Program 
+#12/27/2024 ADD FUND_TRANFER
+#12/28/2024 ADD ERROR HANDLING/show withdrawal/deposit success message
 
 def show_balance(balance):
     print("$$$$$$$$$$$$$$$$$$$$$$$")
     print(f"Your Balance is ${balance:.2f}")
     print("$$$$$$$$$$$$$$$$$$$$$$$")
 
+def show_success_message(message):
+    print("$$$$$$$$$$$$$$$$$$$$$$$")
+    print(message)
+    print("$$$$$$$$$$$$$$$$$$$$$$$")
+
 def deposit(balance):
     print("$$$$$$$$$$$$$$$$$$$$$$$")
-    amount = float(input("Please enter an amount to be Deposited: "))
-    print("$$$$$$$$$$$$$$$$$$$$$$$")
-    
-    if amount < 0:
+    try:
+        amount = float(input("Please enter an amount to be Deposited: "))
         print("$$$$$$$$$$$$$$$$$$$$$$$")
-        print("Sorry, please enter the valid amount :)")
+    
+        if amount < 0:
+            print("$$$$$$$$$$$$$$$$$$$$$$$")
+            print("Sorry, please enter the valid amount :)")
+            print("$$$$$$$$$$$$$$$$$$$$$$$")
+            return 0
+        else:
+            show_success_message(f"Deposit of ${amount:.2f} succeeded !")
+            return amount
+    except ValueError:
+        print("$$$$$$$$$$$$$$$$$$$$$$$")
+        print("Invalid Input. Please enter numeric Value.")
         print("$$$$$$$$$$$$$$$$$$$$$$$")
         return 0
-    else:
-        return amount
     
 
 def withdraw(balance):
     print("$$$$$$$$$$$$$$$$$$$$$$$")
-    amounts = float(input("Please enter an amount to be withdrawn: "))
-    print("$$$$$$$$$$$$$$$$$$$$$$$")
+    try:
+        amounts = float(input("Please enter an amount to be withdrawn: "))
+        print("$$$$$$$$$$$$$$$$$$$$$$$")
 
-    if amounts > balance:
+        if amounts > balance:
+            print("$$$$$$$$$$$$$$$$$$$$$$$")
+            print("Insufficient funds")
+            print("$$$$$$$$$$$$$$$$$$$$$$$")
+            return 0
+        elif amounts < 0:
+            print("Sorry, amount must be greater than 0 :) ")
+            return 0
+        else:
+            show_success_message(f"Withdrawal of ${amounts:.2f} succeeded !")
+            return amounts
+    except ValueError:
         print("$$$$$$$$$$$$$$$$$$$$$$$")
-        print("Insufficient funds")
+        print("Invalid input. Please enter a numeric value.")
         print("$$$$$$$$$$$$$$$$$$$$$$$")
         return 0
-    elif amounts < 0:
-        print("Sorry, amount must be greater than 0 :) ")
-        return 0
-    else:
-        return amounts
     
 def fund_tranfer(balance):
-    amounts = float(input("Please enter an amount to Tranfer: "))
-    
-    if amounts > balance:
-        print('Insufficient funds')
+    try:
+        amounts = float(input("Please enter an amount to Tranfer: "))  
+        if amounts > balance:
+            print('Insufficient funds')
+            return 0
+        elif amounts < 0:
+            print("Sorry, amount must be greater than 0 :) ")
+            return 0 
+        else:
+            while True: 
+                bank_number = input("Please Enter the valid Account number to tranfer: ")
+                if bank_number.isdigit() and len(bank_number) == 10:
+                    print(f"Tranfer of {amounts} to bank number {bank_number} is succed !")
+                    return amounts
+                else:
+                    print("Invalid bank number. Please enter a valid 10-digit numeric bank number.")
+    except ValueError:
+        print("$$$$$$$$$$$$$$$$$$$$$$$")
+        print("Invalid input. Please enter a numeric value for the amount.")
+        print("$$$$$$$$$$$$$$$$$$$$$$$")
         return 0
-    elif amounts < 0:
-        print("Sorry, amount must be greater than 0 :) ")
-        return 0 
-    else:
-        while True: 
-            bank_number = input("Please Enter the valid Account number to tranfer: ")
-            if bank_number.isdigit() and len(bank_number) == 10:
-                print(f"Tranfer of {amounts} to bank number {bank_number} is succed !")
-                return amounts
-            else:
-                print("Invalid bank number. Please enter a valid 10-digit numeric bank number.")
-  
+    
 def main():    
     balance = 0
     is_running = True
