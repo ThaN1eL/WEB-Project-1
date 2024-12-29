@@ -1,30 +1,29 @@
 # PROJECT#1 Python Banking Program 
 #12/27/2024 ADD FUND_TRANFER
-#12/28/2024 ADD ERROR HANDLING/show withdrawal/deposit success message
+#12/28/2024 ADD ERROR HANDLING/show withdrawal+deposit success message
+#12/29/2024 ADD TRANS.HISTORY
+import datetime
 
 def show_balance(balance):
     print("$$$$$$$$$$$$$$$$$$$$$$$")
     print(f"Your Balance is ${balance:.2f}")
-    print("$$$$$$$$$$$$$$$$$$$$$$$")
 
 def show_success_message(message):
     print("$$$$$$$$$$$$$$$$$$$$$$$")
     print(message)
     print("$$$$$$$$$$$$$$$$$$$$$$$")
 
-def deposit(balance):
-    print("$$$$$$$$$$$$$$$$$$$$$$$")
+def deposit(balance, transaction_history):
     try:
         amount = float(input("Please enter an amount to be Deposited: "))
-        print("$$$$$$$$$$$$$$$$$$$$$$$")
     
         if amount < 0:
             print("$$$$$$$$$$$$$$$$$$$$$$$")
             print("Sorry, please enter the valid amount :)")
-            print("$$$$$$$$$$$$$$$$$$$$$$$")
             return 0
         else:
             show_success_message(f"Deposit of ${amount:.2f} succeeded !")
+            log_transaction(transaction_history, "Deposit", amount)
             return amount
     except ValueError:
         print("$$$$$$$$$$$$$$$$$$$$$$$")
@@ -33,22 +32,19 @@ def deposit(balance):
         return 0
     
 
-def withdraw(balance):
-    print("$$$$$$$$$$$$$$$$$$$$$$$")
+def withdraw(balance, transaction_history):
     try:
         amounts = float(input("Please enter an amount to be withdrawn: "))
-        print("$$$$$$$$$$$$$$$$$$$$$$$")
 
         if amounts > balance:
-            print("$$$$$$$$$$$$$$$$$$$$$$$")
             print("Insufficient funds")
-            print("$$$$$$$$$$$$$$$$$$$$$$$")
             return 0
         elif amounts < 0:
             print("Sorry, amount must be greater than 0 :) ")
             return 0
         else:
             show_success_message(f"Withdrawal of ${amounts:.2f} succeeded !")
+            log_transaction(transaction_history, "Withdrawal", amounts)
             return amounts
     except ValueError:
         print("$$$$$$$$$$$$$$$$$$$$$$$")
@@ -56,9 +52,11 @@ def withdraw(balance):
         print("$$$$$$$$$$$$$$$$$$$$$$$")
         return 0
     
-def fund_tranfer(balance):
+def fund_tranfer(balance, transaction_history):
+    print("$$$$$$$$$$$$$$$$$$$$$$$")
     try:
         amounts = float(input("Please enter an amount to Tranfer: "))  
+        
         if amounts > balance:
             print('Insufficient funds')
             return 0
@@ -70,6 +68,7 @@ def fund_tranfer(balance):
                 bank_number = input("Please Enter the valid Account number to tranfer: ")
                 if bank_number.isdigit() and len(bank_number) == 10:
                     print(f"Tranfer of {amounts} to bank number {bank_number} is succed !")
+                    log_transaction(transaction_history,"Transfer", amounts, recipient=bank_number)
                     return amounts
                 else:
                     print("Invalid bank number. Please enter a valid 10-digit numeric bank number.")
@@ -78,35 +77,62 @@ def fund_tranfer(balance):
         print("Invalid input. Please enter a numeric value for the amount.")
         print("$$$$$$$$$$$$$$$$$$$$$$$")
         return 0
+def log_transaction(transaction_history, transaction_type, amount, recipient=None):
+    """Logs a transaction in the transaction history."""
+    timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    transaction= {
+        "type": transaction_type,
+        "amount": amount,
+        "recipient": recipient if recipient else "N/A",
+        "timestamp": timestamp  
+        
+    }
+    transaction_history.append(transaction)
+
+def get_transaction_history(transaction_history):
+    """Displays the transaction history."""
+    if not transaction_history:
+        print("$$$$$$$$$$$$$$$$$$$$$$$")
+        print("No Transaction yet !")
+        return 
+    print("\nTransaction History:")
+    print(f"{'Type':<15}{'Amount':<10}{'Recipient':<15}{'TimeStamp':<20}")
+    print("-"* 60)
+    for transaction in transaction_history:
+        print(f"{transaction['type']:<15}{transaction['amount']:<10.2f}{transaction['recipient']:<15}{transaction['timestamp']:<20}")
+    print("$$$$$$$$$$$$$$$$$$$$$$$")
     
 def main():    
     balance = 0
+    transaction_history = [] #Initialize an empty transaction history
     is_running = True
 
     while is_running:
-        print("$$$$$$$$$$$$$$$$$$$$$$$")
         print("    Banking Program    ")
         print("$$$$$$$$$$$$$$$$$$$$$$$")
         print("1.Show Balance")
         print("2.Deposit")
         print("3. Withdraw")
         print("4. Fund Tranfer")
-        print("5.Exit")
+        print("5. Transaction History")
+        print("6.Exit")
         print("$$$$$$$$$$$$$$$$$$$$$$$")
         
-        choice = input("Enter your choice (1-5): ")
+        choice = input("Enter your choice (1-6): ")
         
         if choice == '1': #show balance
             show_balance(balance)
         elif choice == '2': #input deposit
-            balance += deposit(balance)
+            balance += deposit(balance, transaction_history)
         elif choice == '3': #input withdraw
-            balance -= withdraw(balance)
+            balance -= withdraw(balance,transaction_history)
         elif choice == '4': #input fund_tranfer
-            transferred_amount = fund_tranfer(balance)
+            transferred_amount = fund_tranfer(balance,transaction_history)
             if transferred_amount > 0:
                 balance -= transferred_amount
         elif choice == '5':
+            get_transaction_history(transaction_history)
+        elif choice == '6':
             is_running = False
         else:
             print("$$$$$$$$$$$$$$$$$$$$$$$")
@@ -114,8 +140,8 @@ def main():
             print("$$$$$$$$$$$$$$$$$$$$$$$")
     
     print("$$$$$$$$$$$$$$$$$$$$$$$")        
-    print("Thank You! Have a nice day!")
+    print("Thank You! Have a nice day, sir!")
     print("$$$$$$$$$$$$$$$$$$$$$$$")
     
-if __name__ == '__main__':
+if __name__ == '__main__': #
     main()
