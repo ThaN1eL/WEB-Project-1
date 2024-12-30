@@ -1,9 +1,18 @@
-# PROJECT#1 Python Banking Program 
-#12/27/2024 ADD FUND_TRANFER
-#12/28/2024 ADD ERROR HANDLING/show withdrawal+deposit success message
-#12/29/2024 ADD TRANS.HISTORY
+# PROJECT#1 Python Banking Program V1.3
+
 import datetime
 
+def validate_positive_number(imput_prompt):
+    while True:
+        try:
+            value = float(input(imput_prompt))
+            if value >= 50:
+                return value
+            else:
+                print("Invalid Input. Please enter a number greater than 50 !")
+        except ValueError:
+            print("Invalid Input, please enter a numeric value !")
+                     
 def show_balance(balance):
     print("$$$$$$$$$$$$$$$$$$$$$$$")
     print(f"Your Balance is ${balance:.2f}")
@@ -15,7 +24,7 @@ def show_success_message(message):
 
 def deposit(balance, transaction_history):
     try:
-        amount = float(input("Please enter an amount to be Deposited: "))
+        amount = float(validate_positive_number("Please enter an amount to be Deposited: "))
     
         if amount < 0:
             print("$$$$$$$$$$$$$$$$$$$$$$$")
@@ -34,13 +43,13 @@ def deposit(balance, transaction_history):
 
 def withdraw(balance, transaction_history):
     try:
-        amounts = float(input("Please enter an amount to be withdrawn: "))
+        amounts = float(validate_positive_number("Please enter an amount to be withdrawn: "))
 
         if amounts > balance:
             print("Insufficient funds")
             return 0
-        elif amounts < 0:
-            print("Sorry, amount must be greater than 0 :) ")
+        elif amounts < 50:
+            print("Sorry, amount must be greater than 50 :) ")
             return 0
         else:
             show_success_message(f"Withdrawal of ${amounts:.2f} succeeded !")
@@ -55,14 +64,11 @@ def withdraw(balance, transaction_history):
 def fund_tranfer(balance, transaction_history):
     print("$$$$$$$$$$$$$$$$$$$$$$$")
     try:
-        amounts = float(input("Please enter an amount to Tranfer: "))  
+        amounts = float(validate_positive_number("Please enter an amount to Tranfer: "))  
         
         if amounts > balance:
             print('Insufficient funds')
             return 0
-        elif amounts < 0:
-            print("Sorry, amount must be greater than 0 :) ")
-            return 0 
         else:
             while True: 
                 bank_number = input("Please Enter the valid Account number to tranfer: ")
@@ -77,8 +83,8 @@ def fund_tranfer(balance, transaction_history):
         print("Invalid input. Please enter a numeric value for the amount.")
         print("$$$$$$$$$$$$$$$$$$$$$$$")
         return 0
+    
 def log_transaction(transaction_history, transaction_type, amount, recipient=None):
-    """Logs a transaction in the transaction history."""
     timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     transaction= {
         "type": transaction_type,
@@ -90,13 +96,13 @@ def log_transaction(transaction_history, transaction_type, amount, recipient=Non
     transaction_history.append(transaction)
 
 def get_transaction_history(transaction_history):
-    """Displays the transaction history."""
+    """Displays the transaction history""" 
     if not transaction_history:
         print("$$$$$$$$$$$$$$$$$$$$$$$")
         print("No Transaction yet !")
         return 
     print("\nTransaction History:")
-    print(f"{'Type':<15}{'Amount':<10}{'Recipient':<15}{'TimeStamp':<20}")
+    print(f"{'Type':>15}{'Amount':>10}{'Recipient':>15}{'TimeStamp':>20}")
     print("-"* 60)
     for transaction in transaction_history:
         print(f"{transaction['type']:<15}{transaction['amount']:<10.2f}{transaction['recipient']:<15}{transaction['timestamp']:<20}")
