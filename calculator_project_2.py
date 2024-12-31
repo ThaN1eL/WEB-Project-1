@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 def calculator():
     print("Welcome to the Python Calculator!")
     print("Select an operation to perform:")
@@ -40,3 +41,6 @@ def calculator():
 
 # Run the calculator
 calculator()
+=======
+
+>>>>>>> 38ee625580f102438ac664469900fa9067819d83
