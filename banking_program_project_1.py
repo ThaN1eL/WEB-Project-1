@@ -102,11 +102,13 @@ def get_transaction_history(transaction_history):
         print("No Transaction yet !")
         return 
     print("\nTransaction History:")
-    print(f"{'Type':>15}{'Amount':>10}{'Recipient':>15}{'TimeStamp':>20}")
+    print(f"{'Type':<15}{'Amount':<10}{'Recipient':<15}{'TimeStamp':<20}")
     print("-"* 60)
     for transaction in transaction_history:
         print(f"{transaction['type']:<15}{transaction['amount']:<10.2f}{transaction['recipient']:<15}{transaction['timestamp']:<20}")
     print("$$$$$$$$$$$$$$$$$$$$$$$")
+
+
     
 def main():    
     balance = 0
