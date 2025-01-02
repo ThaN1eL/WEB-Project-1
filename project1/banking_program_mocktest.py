@@ -1,57 +1,64 @@
-def show_balance(balance):
-    print(f"Your balance is ${balance}")
-    
+                #"""MockTest from scratch: Banking Program Test"""
+
+def check_balance(balance):
+    print(f"Your Balance is ${balance:.2f}")
+
+
 def deposit(balance):
-    amount = int(input("Please enter an amounts to be Deposited: "))
-    
-    if amount < 10:
-        print("Please enter amount greater than $10! ")
-        return 0
-    else:
-        print(f"You Succeed Deposit ${amount}")
-        return amount
+    try:  
+        amounts = float(input("Please Enter the amount: "))
         
-def withdraw(balance):
-    amounts = int(input("Please enter an amount to be Withdrawal: "))
-    
-    if amounts > balance:
-        print("Insufficient amounts !")
-        return 0
-    elif amounts < 10:
-        print("Please enter amount greater than $10 !")
-        return 0
-    else:
-        print(f"Your Withdrawal Succeed ${amounts}")
-        return amounts
-        
-
-def main():
-    balance = 0
-    running = True
-    
-    while running:
-        print("1. Show Balance ")
-        print("2. Deposit ")
-        print("3. Withdraw ")
-        print("4. Exit ")
-    
-        select=input("Select Your Choice from 1 until 4: ")
-        
-        if select == "1":
-            show_balance(balance)
-        elif select == "2":
-            balance += deposit(balance)
-        elif select == "3":
-            balance -= withdraw(balance)
-        elif select == "4":
-            running = False
+        if amounts < 50:
+            print("sorry please enter the value greather than 50")
+            return 0
         else:
-            print("Invalid Input. Please select between 1-4")
+            print(f"your withdrawal ${amounts:.2f} succeed !")
+            return amounts
+    except ValueError:
+        print("Please enter the numeric value")
+        return 0
+            
+def withdraw(balance):
+    try:
+        amounts = float(input("Please enter the amounts: "))
         
-print("Thank You !!! Have a nice day!")
-       
-
-if __name__ == '__main__':
+        if amounts > balance:
+            print("Innuficient fund")
+            return 0
+        elif amounts < 50:
+            print("Please enter the value greater than  50")
+            return 0
+        else:
+            print(f"Your withdrawal${amounts:.2f} succeed !")
+            return amounts
+    except ValueError:
+        print("Please numeric value")
+        return 0
+    
+def main():
+    balance = 0 
+    run = True
+    
+    while run:
+        print("1.Check Balance")
+        print("2. Deposit")
+        print("3. Withdraw")
+        print("4. Exit")
+        
+        choice = input("Please choose your desired choice 1 - 4: ")
+        
+        if choice == "1":
+            check_balance(balance)
+        elif choice == "2":
+            balance += deposit(balance)
+        elif choice == "3":
+            balance -= withdraw(balance)
+        elif choice == "4":
+            run = False
+        else:
+            print("Invalid Input !")
+            
+    print("Thankyou Have a nice day")
+            
+if __name__ == '__main__': 
     main()
- 
-        
