@@ -23,7 +23,7 @@ def show_success_message(message):
     print("$$$$$$$$$$$$$$$$$$$$$$$")
 
 def deposit(balance, transaction_history):
-    try:
+    
         amount = float(validate_positive_number("Please enter an amount to be Deposited: "))
     
         if amount < 0:
@@ -34,15 +34,10 @@ def deposit(balance, transaction_history):
             show_success_message(f"Deposit of ${amount:.2f} succeeded !")
             log_transaction(transaction_history, "Deposit", amount)
             return amount
-    except ValueError:
-        print("$$$$$$$$$$$$$$$$$$$$$$$")
-        print("Invalid Input. Please enter numeric Value.")
-        print("$$$$$$$$$$$$$$$$$$$$$$$")
-        return 0
     
 
 def withdraw(balance, transaction_history):
-    try:
+    
         amounts = float(validate_positive_number("Please enter an amount to be withdrawn: "))
 
         if amounts > balance:
@@ -55,34 +50,26 @@ def withdraw(balance, transaction_history):
             show_success_message(f"Withdrawal of ${amounts:.2f} succeeded !")
             log_transaction(transaction_history, "Withdrawal", amounts)
             return amounts
-    except ValueError:
-        print("$$$$$$$$$$$$$$$$$$$$$$$")
-        print("Invalid input. Please enter a numeric value.")
-        print("$$$$$$$$$$$$$$$$$$$$$$$")
-        return 0
+   
     
 def fund_tranfer(balance, transaction_history):
     print("$$$$$$$$$$$$$$$$$$$$$$$")
-    try:
-        amounts = float(validate_positive_number("Please enter an amount to Tranfer: "))  
+    
+    amounts = float(validate_positive_number("Please enter an amount to Tranfer: "))  
         
-        if amounts > balance:
-            print('Insufficient funds')
-            return 0
-        else:
-            while True: 
-                bank_number = input("Please Enter the valid Account number to tranfer: ")
-                if bank_number.isdigit() and len(bank_number) == 10:
-                    print(f"Tranfer of {amounts} to bank number {bank_number} is succed !")
-                    log_transaction(transaction_history,"Transfer", amounts, recipient=bank_number)
-                    return amounts
-                else:
-                    print("Invalid bank number. Please enter a valid 10-digit numeric bank number.")
-    except ValueError:
-        print("$$$$$$$$$$$$$$$$$$$$$$$")
-        print("Invalid input. Please enter a numeric value for the amount.")
-        print("$$$$$$$$$$$$$$$$$$$$$$$")
+    if amounts > balance:
+        print('Insufficient funds')
         return 0
+    else:
+        while True: 
+            bank_number = input("Please Enter the valid Account number to tranfer: ")
+            if bank_number.isdigit() and len(bank_number) == 10:
+                print(f"Tranfer of {amounts} to bank number {bank_number} is succed !")
+                log_transaction(transaction_history,"Transfer", amounts, recipient=bank_number)
+                return amounts
+            else:
+                print("Invalid bank number. Please enter a valid 10-digit numeric bank number.")
+                return 0
     
 def log_transaction(transaction_history, transaction_type, amount, recipient=None):
     timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -144,7 +131,7 @@ def main():
             is_running = False
         else:
             print("$$$$$$$$$$$$$$$$$$$$$$$")
-            print("Invalid choice. Please enter a number between 1 and 5")
+            print("Invalid choice. Please enter a number between 1 and 6")
             print("$$$$$$$$$$$$$$$$$$$$$$$")
     
     print("$$$$$$$$$$$$$$$$$$$$$$$")        
