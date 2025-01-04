@@ -1,36 +1,32 @@
-                #"""MockTest from scratch: Banking Program Test 3rd ATTEMPT. LAST TRY NO CAP :)"""
+                #"""MockTest from scratch: Banking Program Test 4th ATTEMPT. :)"""
 # balance, withdraw and deposit
+#using define function
 
-def check_balance(balance):
-    print(f"Your Current balance is ${balance:.2f}")
+def balance_check(balance):
+    print(f"YourBalance is ${balance}")
     
 def deposit(balance):
-    amount = float(input("Please input the amounts"))
-
-    if amount < 50:
-       print("please input the value higher than 50")  
-       return  0
-    else:     
-       print(f"Your deposit ${amount:.2f}has been succeed!")
-       return amount
-   
-def withdraw(balance):
-    amount = float(input("Please input the amounts"))
+    amount = int(input("please input the value you want to deposited: "))
     
-    if amount > balance:
-       print("Inufficient fund")
-       return 0
-    elif amount > 50:
-       print("Please input the amount greater than 50")
-       return 0  
-    elif amount < 0:
-        print("please input the positive amounts :))")
+    if amount < 0:
+        print("please input the value greater than 0")
         return 0
     else:
-        print(f"Your Withdrawal ${amount:.2f} has been succeed! ")
+        print(f"your deposit ${amount} has been succeed!")
         return amount
     
+def withdraw(balance):
+    amount = int(input("please input the value you want to withdraw'ed: "))
     
+    if amount > balance:
+        print("innuficient fund")
+        return 0
+    elif amount < 0:
+        print("please input the value greater than 0")
+        return 0
+    else:
+        print(f"your withdrawal ${amount} has been succeed !")
+        return amount
     
     
 def main():
@@ -38,24 +34,25 @@ def main():
     run = True
     
     while run:
-        print("1. Show Balance:")
-        print("2.Deposit:")
-        print("3.Withdraw:")
+        print("1. Show Balance")
+        print("2. Deposit")
+        print("3. Withdraw")
         print("4. Exit")
-        
-        choice = input("Please select what transaction do you need from 1 - 4 ")
-        
+    
+        choice = input("please select your choice from 1, 2 , 3 or 4: ")
+            
         if choice == '1':
-            check_balance(balance)      
+            balance_check(balance)
         elif choice == '2':
             balance += deposit(balance)
         elif choice == '3':
             balance -= withdraw(balance)
         elif choice == '4':
-             run = False
+            run = False
         else:
-            print("Please select only from  1, 2, 3 or 4")
-    print("ThankYou for your today transaction sir") 
-                     
+            print("Please select 1,2,3 or 4")
+        
+    print("Thank you for using this services my bro")
+        
 if __name__ == '__main__':
     main()
