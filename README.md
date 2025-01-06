@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://imgur.com/a/ahGFPxL" alt="profile-banner" />
+  <img src="https://drive.google.com/file/d/1BSAdef-ypJ1HH1w9NXTUHyqu-BVChDWC/view?usp=sharing" />
 </p>
 
 <h1 align="center">Hello, I'm th4N1eL</h1>
