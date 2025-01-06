@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://drive.google.com/file/d/1BSAdef-ypJ1HH1w9NXTUHyqu-BVChDWC/view?usp=sharing" />
+  <img src="https://drive.google.com/uc?export=view&id=1BSAdef-ypJ1HH1w9NXTUHyqu-BVChDWC" />
 </p>
 
 <h1 align="center">Hello, I'm th4N1eL</h1>
