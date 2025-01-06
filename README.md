@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://www.sololearn.com/en/certificates/CC-LCZPAI4U" alt="profile-banner" />
+  <img src="https://imgur.com/a/ahGFPxL" alt="profile-banner" />
 </p>
 
 <h1 align="center">Hello, I'm th4N1eL</h1>
