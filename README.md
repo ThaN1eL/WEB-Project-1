@@ -9,5 +9,5 @@
 
 ---
 
-> **"The best programmers are not marginally better than merely good ones. They are an order-of-magnitude better, measured by whatever standard: conceptual creativity, speed, ingenuity of design, or problem-solving ability."**  
-> – Randall E. Stross
+> **"<i>Experienced and Professional Programmers get bugs all the time. So if you are making mistakes, its okey bro! You are on the right track. Pracice make Perfect ! </i> :)"**  
+> – th4N1eL
