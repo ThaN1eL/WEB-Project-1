@@ -1,0 +1,147 @@
+:root {
+    --primary: #4254ba;
+    -bg: #000;
+}
+
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+outline: none;
+border: none;
+text-decoration: none;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg);
+    color: #fff;
+
+}
+
+/* Navbar */
+
+.navbar{
+    display: flex; /*class navbar agar bisa diatur lebih mudah*/
+    justify-content: space-between; /*agar sejajar secara horizontal*/
+    align-items: center; /*agar sejajar secara vertical*/
+    padding: 1.4rem 7%;
+    background-color: rgba(127, 255, 212,0.8); /*diubah ke rgba untuk bisa mnambahkan point ke 4 untuk transparancy*/
+    border-bottom: 1px solid #0d122e;
+    position: fixed; /*agar waktu di scroll navbar fixed diatas*/
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999; /*membuat navbar selalu diatas*/
+}
+
+
+.navbar .navbar-logo {
+    font-size: 2rem;
+    font-weight: 520;
+    color: #aa3232;
+    font-style:italic;
+}
+
+.navbar .navbar-logo span{
+    color: var(--primary);
+}
+
+.navbar .navbar-nav a {
+    color: #aa3232;
+    display: inline-block; /*a display = inline! ,inlineblock = memberi margin tanpa membuat inline turun ke bawah*/
+    font-size: 1.2rem;
+    margin: 0 1rem;
+}
+
+.navbar .navbar-nav a:hover {
+    color: #14c53a;
+
+}
+
+.navbar .navbar-nav a::after {
+    content: '';
+    display:block;
+    padding-bottom: 1rem;
+    border-bottom: 0.1rem solid var(--primary);
+    transform: scaleX(0);
+    transition: 0.4s linear;
+}
+
+.navbar .navbar-nav a:hover::after {
+    transform: scaleX(0.8);
+}
+
+.navbar .navbar-extra a{
+    color: #fff;
+    margin: 0 0.5rem;   
+}
+
+.navbar .navbar-extra a:hover {
+    color: #f00;
+}
+
+
+#hamburger-menu {
+    display: none;
+}
+
+
+/* Media Queries */
+
+
+/* laptop */
+@media (max-width: 1366px) {
+    html{
+        font-size: 75%;
+    }
+}
+/* deskop */
+@media (max-width: 1920px) {
+    html{
+        font-size: 100%;
+    }
+}
+/* tablet */
+@media (max-width: 768px) {
+    html{
+        font-size: 62.5%;
+    }
+
+ #hamburger-menu {
+    display: inline-block;
+ }
+
+ .navbar .navbar-nav {
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    background-color: #fff;
+    width: 30rem;
+    height: 100vh;
+    transition: 0.3s;
+ }
+ .navbar .navbar-nav.active {
+    right: 0;
+ }
+
+ .navbar .navbar-nav a {
+    color: var(--primary);
+    display: block;
+    margin: 1.5rem;
+    padding: 0.5rem;
+    font-size: 2rem;
+ }
+ .navbar .navbar-nav a::after {
+    transform-origin: 0 0;
+ }
+ .navbar .navbar-nav a:hover::after {
+    transform: scaleX(0.4);
+ }
+}
+/* mobile */
+@media (max-width: 450px) {
+    html{
+        font-size: 55%;
+    }
+}
