@@ -1,6 +1,6 @@
 :root {
     --primary: #4254ba;
-    -bg: #000;
+    --bg: #010101;
 }
 
 * {
@@ -16,6 +16,7 @@ body{
     font-family: 'Poppins', sans-serif;
     background-color: var(--bg);
     color: #fff;
+    min-height: 2000px;
 
 }
 
@@ -86,6 +87,93 @@ body{
     display: none;
 }
 
+/* Hero Section */
+
+.hero{
+    min-height: 105vh;
+    display: flex; /* untuk posisi class hero berada di tengah*/
+    align-items: center;
+    background-image: url('../img/header-bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 30%;
+    bottom: 0;
+    background: linear-gradient(0deg,
+    rgb(1,1,3,1)21%, rgba(255,255,255,0)25%);
+}
+
+.hero .content {
+    padding: 1.4rem 7%;
+    max-width: 60rem;
+    margin-left:  auto;
+    margin-right: 0%;
+    text-align: center;
+}
+.hero .content h1{
+    font-size: 5em;
+    color: #aa3232;
+    text-shadow: 1px 1px 3px rgba(1,1,3, 0.5);
+    text-align:right;
+    position: relative;
+    line-height: 1.1;
+    font-style: italic;
+
+}
+
+.hero .content h1 span{
+    color: var(--primary);
+}
+
+.hero .content p {
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+    line-height: 1.8rem;
+    font-weight: 50;
+    color: rgba(rgb(210, 210, 210, 1));
+    text-align: right;
+    margin-right: 0%;
+    font-style: italic;
+    text-shadow: 1px 1px 3px rgba(1,1,3, 0.5);
+}
+
+.hero .content .cta{
+    margin-top: 1rem;
+    display: inline-block; 
+    padding: 1rem 3rem;
+    font-size: 1.4rem;
+    color: antiquewhite;
+    background-color: var(--primary);
+    border-radius: 0.5rem;
+    box-shadow: 1px 1px 3px rgba(1,1,3,0.5);
+    
+}
+
+/* About Section */
+.about {
+    padding: 6rem 7% 1.4rem;
+}
+
+.about h2 {
+    text-align: center;
+    font-size: 2.6rem;
+    margin-bottom: 3rem;
+    color:var(--primary);
+}
+
+.about h2 span {
+    color:aquamarine;
+}
 
 /* Media Queries */
 

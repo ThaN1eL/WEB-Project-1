@@ -1,8 +1,8 @@
 # PROJECT#1 Python Banking Program V1.3
 
-import datetime
+import datetime #this is import default python module
 
-def validate_positive_number(imput_prompt):
+def validate_positive_number(imput_prompt): #this is function
     while True:
         try:
             value = float(input(imput_prompt))

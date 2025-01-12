@@ -1,4 +1,6 @@
 // RANDOM PASSWORD GENERATOR
+///const (Variable value = fixed cant be changed)
+////let (Variable value can be change)
 
 function generatePassword(length, includeLowercase, includeUppercase,includeNumbers,includeSymbols){
 
@@ -9,7 +11,7 @@ function generatePassword(length, includeLowercase, includeUppercase,includeNumb
 
     let allowedChars = "";
     let password = "";
-
+// ? (same like ifelse, but used to write simple conditions)
     allowedChars += includeLowercase ? lowercaseChars : "";
     allowedChars += includeUppercase ? uppercaseChars : "";
     allowedChars += includeNumbers ? numberChars : "";
@@ -18,6 +20,7 @@ function generatePassword(length, includeLowercase, includeUppercase,includeNumb
    if(length <=0){
         return `(password length must be at least 1)`;
    }
+//Unlike == (loose equality), ===( It compares the values exactly as they are)
    if(allowedChars.length === 0){
         return `(at lease 1 set of character need to be selected)`;
    }

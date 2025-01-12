@@ -16,7 +16,5 @@ const hamburger = document.querySelector
 document.addEventListener('click', function(e) {
     if(!hamburger.contains(e.target) && !navbarNav.contains(e.target)) {
         navbarNav.classList.remove('active');
-    }
-        
-
+    }      
 })
