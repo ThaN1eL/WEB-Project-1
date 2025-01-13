@@ -16,7 +16,7 @@ body{
     font-family: 'Poppins', sans-serif;
     background-color: var(--bg);
     color: #fff;
-    min-height: 2000px;
+    min-height: 3000px;
 
 }
 
@@ -52,7 +52,7 @@ body{
     color: #aa3232;
     display: inline-block; /*a display = inline! ,inlineblock = memberi margin tanpa membuat inline turun ke bawah*/
     font-size: 1.2rem;
-    margin: 0 1rem;
+    margin: 0 0.3rem;
 }
 
 .navbar .navbar-nav a:hover {
@@ -160,20 +160,88 @@ body{
 }
 
 /* About Section */
-.about {
+.about,
+.menu {
     padding: 6rem 7% 1.4rem;
 }
 
-.about h2 {
+.about h2,
+.menu h2 {
     text-align: center;
     font-size: 2.6rem;
     margin-bottom: 3rem;
     color:var(--primary);
 }
 
-.about h2 span {
+.about h2 span,
+.menu h2 span {
     color:aquamarine;
 }
+
+.about .row{
+    display: flex;
+}
+
+.about .row .about-img{
+    flex: 1 1 45rem;
+}
+
+.about .row .about-img img{
+    width: 100%;
+}
+
+.about .row .content {
+    flex: 1 1 35rem;
+    padding: 0 1rem;
+}
+
+.about .row .content h3{
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.about .row .content p {
+    margin-bottom: 0.8rem;
+    font-size: 1.4rem;
+    font-weight: 150;
+    line-height: 1.6rem;
+}
+
+/* Menu Section */
+
+.menu h2 {
+    margin-bottom: 1rem;
+}
+
+.menu p {
+    text-align: center;
+    max-width: 30rem;
+    margin: auto;
+    font-weight: 100;
+    line-height: 1.6rem;
+}
+
+.menu .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 5rem;
+    justify-content: center;
+}
+
+.menu .row .menu-card {
+    text-align: center;
+    padding-bottom: 4rem;
+}
+
+.menu .row .menu-card img{
+    border-radius: 50%;
+    width: 80%;
+}
+
+.menu .row .menu-card .menu-card-title {
+    margin: 1rem auto 0.5rem;
+}
+
 
 /* Media Queries */
 
@@ -226,6 +294,34 @@ body{
  .navbar .navbar-nav a:hover::after {
     transform: scaleX(0.4);
  }
+
+ .about .row{
+    flex-wrap: wrap;
+ }
+
+ .about .row .about-img img{
+    height: 24rem;
+    object-fit: cover;
+    object-position: center;
+ }
+
+ .about .row .content {
+    padding: 0;
+ }
+
+ .about .row .content h3 {
+    margin-top: 1rem;
+    font-size: 2.5rem;
+ }
+
+ .about .row .content p{
+    font-size: 1.6rem;
+ }
+
+ .menu p {
+    font-size: 1.2rem;
+ }
+
 }
 /* mobile */
 @media (max-width: 450px) {
