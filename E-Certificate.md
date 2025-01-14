@@ -1,5 +1,5 @@
 ![image](https://github.com/user-attachments/assets/5eab72ce-c6a5-4892-b518-72cf8d9f45ba)
-
+Content: Python Beginner - Intermidiate Fundamental <br>
 https://www.sololearn.com/certificates/CC-LCZPAI4U<br>
 Issued: 26 December 2024 <br><br><br>
 
