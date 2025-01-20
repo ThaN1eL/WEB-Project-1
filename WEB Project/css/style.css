@@ -290,10 +290,11 @@ body{
 .about .row .content {
     flex: 1 1 35rem;
     padding: 0 1rem;
+    text-align:center;
 }
 
 .about .row .content h3{
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     margin-bottom: 1rem;
 }
 
@@ -334,7 +335,7 @@ body{
 
 .menu .row .menu-card img{
     border-radius: 50%;
-    width: 80%;
+    width: 50%;
 }
 
 .menu .row .menu-card .menu-card-title {
@@ -637,7 +638,7 @@ footer .credit a{
  }
 
  .about .row .about-img img{
-    height: 24rem;
+    height: 80rem;
     object-fit: cover;
     object-position: center;
  }
@@ -648,7 +649,7 @@ footer .credit a{
 
  .about .row .content h3 {
     margin-top: 1rem;
-    font-size: 2.5rem;
+    font-size: 1.72rem;
  }
 
  .about .row .content p{
