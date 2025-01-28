@@ -52,27 +52,10 @@ document.addEventListener('click', function(e) {
 
 //Modal Box
 
-const itemDetailModal = document.querySelector('#item-detail-modal');
-const itemDetailButtons = document.querySelectorAll('.item-detail-button');
-
-itemDetailButtons.forEach((btn) => {
-    btn.onclick = (e) => {
-    itemDetailModal.style.display = 'flex';
-    e.preventDefault();
-    };
-});
-
-
-//Click tombol close
-document.querySelector('.modal .close-icon').onclick = (e) => {
-    itemDetailModal.style.display = 'none';
-    e.preventDefault();
-};
-
-//Click diluar Modal
-
+// Click outside to close modal
 window.onclick = (e) => {
-    if (e.target === itemDetailModal) {
-        itemDetailModal.style.display = 'none';
+    const modal = document.querySelector('#item-detail-modal');
+    if (e.target === modal) {
+        Alpine.store('modal').close();
     }
 };

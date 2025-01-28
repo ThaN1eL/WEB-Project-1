@@ -206,7 +206,7 @@
                             <use href="img/feather-sprite.svg#shopping-cart" />
                             </svg>
                     </a>
-                    <a href="#" class="item-detail-button">
+                    <a href="#" class="item-detail-button" @click.prevent="$store.modal.open(item)">
                         <svg width="24"
                         height="24"
                         fill="none"
@@ -339,48 +339,22 @@
 <!-- Footer end -->
 
 <!-- Modal Box Item Detail start -->
-<div class="modal" id="item-detail-modal">
+<div class="modal" id="item-detail-modal" x-data="$store.modal">
     <div class="modal-container">
-        <a href="#" class="close-icon"><i data-feather="x"></i></a>
-        <div class="modal-content">
-            <img src="img/menu/product2.png" alt=" Product 1">
+        <a href="#" class="close-icon" @click.prevent="$store.modal.close()">
+            <i data-feather="x"></i>
+        </a>
+        <div class="modal-content" x-show="selectedItem">
+            <img :src="`img/menu/${selectedItem.img}`" :alt="selectedItem.name">
             <div class="product-content">
-                <h3>Product 1</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis ducimus iure quia alias ipsa nemo modi ab saepe consequatur mollitia non architecto, velit eius odio.</p>
-                <div class="product-stars">
-                    <i data-feather="star" class="star-full"></i>
-                    <i data-feather="star" class="star-full"></i>
-                    <i data-feather="star" class="star-full"></i>
-                    <i data-feather="star" class="star-full"></i>
-                    <i data-feather="star"></i> 
-                </div>
+                <h3 x-text="selectedItem.name"></h3>
+                <p x-text="selectedItem.description"></p>
                 <div class="product-price">
-                    USD 1000 <span>USD 10.000</span>
+                    <span x-text="USD(selectedItem.price)"></span>
                 </div>
-                <a href="#"><i data-feather="shopping-cart"></i><span>add to cart</span></a>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="modal" id="item-detail-modal">
-    <div class="modal-container">
-        <a href="#" class="close-icon"><i data-feather="x"></i></a>
-        <div class="modal-content">
-            <img src="img/menu/product3.png" alt=" Product 2">
-            <div class="product-content">
-                <h3>Product 2</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis ducimus iure quia alias ipsa nemo modi ab saepe consequatur mollitia non architecto, velit eius odio.</p>
-                <div class="product-stars">
-                    <i data-feather="star" class="star-full"></i>
-                    <i data-feather="star" class="star-full"></i>
-                    <i data-feather="star" class="star-full"></i>
-                    <i data-feather="star" class="star-full"></i>
-                    <i data-feather="star"></i> 
-                </div>
-                <div class="product-price">
-                    USD 1000 <span>USD 10.000</span>
-                </div>
-                <a href="#"><i data-feather="shopping-cart"></i><span>add to cart</span></a>
+                <a href="#" @click.prevent="$store.cart.add(selectedItem)">
+                    <i data-feather="shopping-cart"></i><span>Add to cart</span>
+                </a>
             </div>
         </div>
     </div>

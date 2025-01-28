@@ -590,10 +590,6 @@ footer .credit a{
     background-color: rgba(0, 0, 0, 0.7);
 }
 
-.modal.active{
-    display: flex;
-}
-
 .modal-container {
     position: relative;
     background-color: #fefefe;
