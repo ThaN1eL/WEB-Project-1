@@ -55,14 +55,16 @@ document.addEventListener('alpine:init', () => {
     });
 
     Alpine.store('modal', {
-        selectedItem: null,
+        selectedItem: [],
         open(item) {
             this.selectedItem = item;
             document.querySelector('#item-detail-modal').style.display = 'flex';
         },
         close() {
-            this.selectedItem = null;
+            this.selectedItem = [];
+            if (this.selectedItem.length === 0)
             document.querySelector('#item-detail-modal').style.display = 'none';
+            document.querySelector('#modal-image').src = '';
         }
     });
 });
