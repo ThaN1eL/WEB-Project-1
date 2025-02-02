@@ -55,18 +55,21 @@ document.addEventListener('alpine:init', () => {
     });
 
     Alpine.store('modal', {
-        selectedItem: [],
+        selectedItem: null,
         open(item) {
-            this.selectedItem = item;
+            this.selectedItem = { 
+                ...item, 
+                img: `/static/img/menu/${item.img}` // Ensure full path
+            };
             document.querySelector('#item-detail-modal').style.display = 'flex';
         },
         close() {
-            this.selectedItem = [];
-            if (this.selectedItem.length === 0)
+            this.selectedItem = null;
             document.querySelector('#item-detail-modal').style.display = 'none';
-            document.querySelector('#modal-image').src = '';
         }
     });
+    
+
 });
 
 const USD = (number) => {
@@ -75,4 +78,5 @@ const USD = (number) => {
         currency: 'USD',
         minimumFractionDigits: 2,
     }).format(number);
+
 };

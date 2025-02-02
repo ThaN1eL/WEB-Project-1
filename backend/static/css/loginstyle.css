@@ -1,0 +1,131 @@
+:root {
+    --primary: #4254ba;
+    --background: #f2f2f2;
+    --input-border: #ccc;
+    --text-dark: #333;
+    --text-light: #666;
+    --font-size-default: 16px;
+    --font-size-heading: 18px;
+    --border-radius: 5px;
+    --box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px, rgba(0, 0, 0, 0.08) 0px 1px 3px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.navbar{
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    padding: 2rem 0;
+}
+
+
+.navbar .navbar-logo {
+    font-size: 2rem;
+    font-weight: 520;
+    color: #aa3232;
+    font-style:italic;
+    text-decoration: none;
+}
+
+.navbar .navbar-logo span{
+    color: var(--primary);
+}
+
+body {
+    background-color: var(--background);
+    font-size: var(--font-size-default);
+    color: var(--text-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    margin: 0;
+    flex-direction: column;
+}
+
+.main-container {
+    background-color: white;
+    width: 100%;
+    max-width: 380px;
+    padding: 3rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    margin-top: 5px;
+}
+
+h2 {
+    font-size: 1.8rem;
+    color: var(--text-dark);
+    margin-bottom: 2rem;
+}
+
+input {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--input-border);
+    border-radius: var(--border-radius);
+    font-size: var(--font-size-default);
+    color: var(--text-dark);
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 5px var(--primary);
+}
+
+.password-note {
+    display: flex;
+    align-items:center;
+    font-size: 0.8rem;
+    font-style: italic;
+    margin-top: -20px;
+    padding: 0.3rem;
+    gap: 3px;
+}
+
+button {
+    width: 100%;
+    padding: 1.2rem;
+    background-color: var(--primary);
+    color: white;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: darkorange;
+    transform: translateY(-2px);
+}
+
+button:active {
+    background-color: var(--primary);
+    transform: translateY(0);
+}
+
+footer {
+    margin-top: 2rem;
+    font-size: 1rem;
+    color: var(--text-light);
+}
+
+footer a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}

@@ -259,10 +259,10 @@ body{
 /* Hero Section */
 
 .hero{
+    background-image: url("../img/header-bg.jpg");
     min-height: 105vh;
     display: flex; /* untuk posisi class hero berada di tengah*/
     align-items: center;
-    background-image: url('../img/header-bg.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -621,6 +621,10 @@ footer .credit a{
     height: 1rem;
 }
 
+.modal-container .close-icon :hover{
+    color:#f00;
+}
+
 .modal-content {
     display: flex;
     flex-wrap: nowrap;
@@ -648,9 +652,11 @@ footer .credit a{
     color: #fff;
     margin-top: 0.8rem;
     padding: 0.9rem 1.3rem;
-    
 }
 
+.modal-content a:hover {
+    color:red;
+}
 
 
 /* Media Queries */

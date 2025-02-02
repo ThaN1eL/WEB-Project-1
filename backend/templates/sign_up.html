@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/loginstyle.css') }}">
+    <!-- Feather icon -->
+<script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="{{ url_for('views.home') }}" class="navbar-logo">Frieren<span>Academy</span></a>
+    </nav>
+    <div class="main-container">
+        <h2>Create an Account</h2>
+        <form action="" method="POST">
+            <div class="input-group">
+            <input type="text" id="username" name="username" placeholder="Username" required>
+            <input type="email" id="email" name="email" placeholder="Email" required>
+
+            </div>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            <input type="password" id="password" name="password" placeholder="Re-enter your password" required>
+            <small class="password-note">
+                <i data-feather="alert-circle"></i>
+                Passwords must be at least 6 characters.
+            </small>
+            <button type="submit">Register</button>
+        </form>
+        <footer>
+            <p>Already have an account? <a href="{{ url_for('auth.login') }}">Sign in</a></p>
+        </footer>
+    </div>
+
+    <!-- Feather icons -->
+    <script>
+        feather.replace();
+    </script>
+</body>
+</html>
