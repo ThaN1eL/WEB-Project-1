@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    
     document.querySelector('#re-signup').addEventListener('click', function(e) {
         e.preventDefault();
         window.location.href = 'sign_up.html';
@@ -16,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-// Redirect to login page when users click on the "user" icon or "Enroll NOW" button
+// Redirect to login page when users click on the "user" icon , "Enroll NOW" button or "Already have an account?" Button
 document.querySelectorAll('#users, #users2, #re-login').forEach(function(element) {
     element.addEventListener('click', function(e) {
         e.preventDefault(); 
