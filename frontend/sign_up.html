@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/loginstyle.css') }}">
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="stylesheet" href="css/loginstyle.css">
     <!-- Feather icon -->
 <script src="https://unpkg.com/feather-icons"></script>
 </head>
 <body>
     <nav class="navbar">
-        <a href="{{ url_for('views.home') }}" class="navbar-logo">Frieren<span>Academy</span></a>
+        <a href="#" class="navbar-logo" id="landing2">Frieren<span>Academy</span></a>
     </nav>
     <div class="main-container">
         <h2>Create an Account</h2>
@@ -21,7 +22,7 @@
 
             </div>
             <input type="password" id="password" name="password" placeholder="Enter your password" required>
-            <input type="password" id="password" name="password" placeholder="Re-enter your password" required>
+            <input type="password" id="confirm-password" name="password" placeholder="Re-enter your password" required>
             <small class="password-note">
                 <i data-feather="alert-circle"></i>
                 Passwords must be at least 6 characters.
@@ -29,7 +30,7 @@
             <button type="submit">Register</button>
         </form>
         <footer>
-            <p>Already have an account? <a href="{{ url_for('auth.login') }}">Sign in</a></p>
+            <p>Already have an account? <a href="#" id="re-login">Sign in</a></p>
         </footer>
     </div>
 
@@ -37,5 +38,8 @@
     <script>
         feather.replace();
     </script>
+
+    <!-- AUTH JS -->
+    <script src="jss/auth.js"></script>
 </body>
 </html>

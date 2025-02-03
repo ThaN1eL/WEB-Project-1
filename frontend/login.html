@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/loginstyle.css') }}">
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="stylesheet" href="css/loginstyle.css">
 </head>
 <body>
     <nav class="navbar">
-        <a href="{{ url_for('views.home') }}" class="navbar-logo">Frieren<span>Academy</span></a>
+        <a href="#" class="navbar-logo" id="landing">Frieren<span>Academy</span></a>
     </nav>
     <div class="main-container">
         <h2>Sign in</h2>
@@ -20,8 +21,11 @@
             <button type="submit">Sign in</button>
         </form>
         <footer>
-            <p>Don't have an account? <a href="{{ url_for('auth.sign_up') }}">Create an account</a></p>
+            <p>Don't have an account? <a href="#" id="re-signup">Create an account</a></p>
         </footer>
     </div>
+
+    <!-- AUTH JS -->
+    <script src="jss/auth.js"></script>
 </body>
 </html>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Frieren Academy</title>
-    <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/favicon.png') }}">
+    <link rel="icon" type="image/png" href="img/favicon.png">
 <!-- FONTs -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,13 +15,13 @@
 
 
 <!-- MY style -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="css/style.css">
 
 <!-- Alpine JS -->
 <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
 <!-- App -->
-<script src="{{ url_for('static', filename='src/app.js') }}"></script>
+ <script src="src/app.js"></script>
 </head>
 <body>
 
@@ -39,7 +39,7 @@
 
 
         <div class="navbar-extra">
-            <a href="{{ url_for('auth.login') }}" id="users"><i data-feather="user"></i> </a>
+            <a href="#" id="users"><i data-feather="user"></i> </a>
             <a href="#" id="search"><i data-feather="search"></i> </a>
             <a href="#" id="shopping-cart-button">
                 <i data-feather="shopping-cart"></i>
@@ -60,7 +60,7 @@
 <div class="shopping-cart">
     <template x-for="(item, index) in $store.cart.items" x-keys="index">
         <div class="cart-item">
-            <img :src="'{{ url_for('static', filename='img/menu/') }}' + item.img" :alt="item.name">
+        <img :src="`img/menu/${item.img}`" :alt="item.name">
             <div class="item-detail">
                 <h3 x-text="item.name"></h3>
                 <div class="item-price">
@@ -112,12 +112,11 @@
 
     <!-- Hero Section Start -->
 
-    <section class="hero" id="home" class="hero">
-
+<section class="hero" id="home">
     <main class="content">
         <h1>Frieren<span> Academy </span></h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi blanditiis rem amet esse pariatur nemo omnis ad iusto voluptas dicta suscipit optio, eos necessitatibus, dolore veniam itaque animi asperiores doloremque?</p>
-        <a href="{{ url_for('auth.login') }}" class="cta">Enroll NOW</a>
+        <a href="#" class="cta" id="users2">Enroll NOW</a>
     </main>
 </section>
 
@@ -129,7 +128,8 @@
 
         <div class="row">
             <div class="about-img">
-                <img src="{{ url_for('static', filename='img/about-us.jpg') }}" alt="About Us">
+                <img src="img/about-us.jpg" 
+                alt="About Us">
             </div>
             <div class="content">
                 <h3>Why <span>You</span> should choose Frieren as your mentor</h3>
@@ -148,31 +148,36 @@
 
 <div class="row">
     <div class="menu-card">
-        <img src="{{ url_for('static', filename='img/menu/class1.png') }}" alt="Class 1">
+        <img src="img/menu/class1.png" 
+        alt="service1" class="menu-card-img"> 
         <h3 class="menu-card-title">- Apprentice -</h3>
         <p class="menu-card-desc"> Beginner learning the basics of magic </p>
     </div>
 
     <div class="menu-card">
-        <img src="{{ url_for('static', filename='img/menu/class2.png') }}" alt="Class 2">
+        <img src="img/menu/class2.png" 
+        alt="service1" class="menu-card-img"> 
         <h3 class="menu-card-title">- Mage -</h3>
         <p class="menu-card-desc"> Proficient spellcaster </p>
     </div>
 
     <div class="menu-card">
-        <img src="{{ url_for('static', filename='img/menu/class3.png') }}" alt="Class 3">
+        <img src="img/menu/class3.png" 
+        alt="service1" class="menu-card-img"> 
         <h3 class="menu-card-title">- High Wizard  -</h3>
         <p class="menu-card-desc"> Scholar and master of multiple magic </p>
     </div>
 
     <div class="menu-card">
-        <img src="{{ url_for('static', filename='img/menu/class4.png') }}" alt="Class 4">
+        <img src="img/menu/class4.png" 
+        alt="service1" class="menu-card-img"> 
         <h3 class="menu-card-title">- Sorcerer -</h3>
         <p class="menu-card-desc"> Powerful, instinctive magic user with raw magical talent </p>
     </div>
     
     <div class="menu-card">
-        <img src="{{ url_for('static', filename='img/menu/class5.png') }}" alt="Class 5">
+        <img src="img/menu/class5.png" 
+        alt="service1" class="menu-card-img"> 
         <h3 class="menu-card-title">- Archmage -</h3>
         <p class="menu-card-desc"> The ultimate magic wielder </p>
     </div>
@@ -199,7 +204,7 @@
                             stroke-width="2"
                             stroke-linecap="round"
                             stroke-linejoin="round">
-                            <use href="{{ url_for('static', filename='img/feather-sprite.svg') }}#shopping-cart" />
+                            <use href="img/feather-sprite.svg#shopping-cart" />
                             </svg>
                     </a>
                     <a href="#" class="item-detail-button" @click.prevent="$store.modal.open(item)">
@@ -210,12 +215,12 @@
                         stroke-width="2"
                         stroke-linecap="round"
                         stroke-linejoin="round">
-                        <use href="{{ url_for('static', filename='img/feather-sprite.svg') }}#eye" />
+                        <use href="img/feather-sprite.svg#eye" />
                         </svg>
                     </a>
                 </div>
                 <div class="product-image">
-                    <img :src="'{{ url_for('static', filename='img/menu/') }}' + item.img" :alt="item.name">
+                <img :src="`img/menu/${item.img}`" :alt="item.name"> 
                 </div>
                 <div class="product-content">
                     <h3 x-text="item.name"></h3>
@@ -227,7 +232,7 @@
                         stroke-width="2"
                         stroke-linecap="round"
                         stroke-linejoin="round">
-                        <use href="{{ url_for('static', filename='img/feather-sprite.svg') }}#star" />
+                        <use href="img/feather-sprite.svg#star" />
                         </svg>
                         <svg width="24"
                         height="24"
@@ -236,7 +241,7 @@
                         stroke-width="2"
                         stroke-linecap="round"
                         stroke-linejoin="round">
-                        <use href="{{ url_for('static', filename='img/feather-sprite.svg') }}#star" />
+                        <use href="img/feather-sprite.svg#star" />
                         </svg>
                         <svg width="24"
                         height="24"
@@ -245,7 +250,7 @@
                         stroke-width="2"
                         stroke-linecap="round"
                         stroke-linejoin="round">
-                        <use href="{{ url_for('static', filename='img/feather-sprite.svg') }}#star" />
+                        <use href="img/feather-sprite.svg#star" />
                         </svg>
                         <svg width="24"
                         height="24"
@@ -254,7 +259,7 @@
                         stroke-width="2"
                         stroke-linecap="round"
                         stroke-linejoin="round">
-                        <use href="{{ url_for('static', filename='img/feather-sprite.svg') }}#star" />
+                        <use href="img/feather-sprite.svg#star" />
                         </svg>
                         <svg width="24"
                         height="24"
@@ -263,7 +268,7 @@
                         stroke-width="2"
                         stroke-linecap="round"
                         stroke-linejoin="round">
-                        <use href="{{ url_for('static', filename='img/feather-sprite.svg') }}#star" />
+                        <use href="img/feather-sprite.svg#star" />
                         </svg>
                     </div>
                     <div class="product-price"><span x-text="USD(item.price)"></span>
@@ -341,7 +346,7 @@
             <i data-feather="x"></i>
         </a>
         <div class="modal-content" x-show="selectedItem">
-            <img :src="selectedItem.img" :alt="selectedItem.name">
+            <img :src="`img/menu/${selectedItem.img}`" :alt="selectedItem.name">
             <div class="product-content">
                 <h3 x-text="selectedItem.name"></h3>
                 <p x-text="selectedItem.description"></p>
@@ -364,6 +369,7 @@
     </script>
 
     <!-- My Javascript -->
-    <script src="{{ url_for('static', filename='jss/script.js') }}"></script>
+     <script src="jss/script.js"></script>
+     <script src="jss/auth.js"></script>
 </body>
 </html>
